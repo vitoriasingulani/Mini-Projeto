@@ -1,13 +1,13 @@
 package api.entity;
 
 public class Disciplinas {
-    private String nomeDaDisciplina;
+    private String nomeDisciplina;
 
     public String getNomeDaDisciplina() {
-        return nomeDaDisciplina;
+        return nomeDisciplina;
     }
 
     public void setNomeDaDisciplina(String nomeDaDisciplina) {
-        this.nomeDaDisciplina = nomeDaDisciplina;
+        this.nomeDisciplina = nomeDaDisciplina;
     }
 }

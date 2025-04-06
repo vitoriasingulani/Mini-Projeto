@@ -1,0 +1,18 @@
+1. Faz a lógica de ficar pedindo mais disciplinas logo depois de
+instânciar a classe aluno sem as disciplinas.
+(Faz isso no main como vc tava)
+
+
+2. Feito apenas a lógica de ficar perguntando , parar de
+perguntar e continuar com o resto do código, cria uma
+classe chamada Disciplinas.
+
+
+3. Adiciona o atributo de disciplinas a classe Aluno.
+
+4. Ao término da etapa de adicionar disciplinas,
+ adiciona o aluno a lista.
+
+OBS: não precisa adicionar ainda as disciplinas
+ao aluno agora, isso vai ser feito com um método
+"setDisciplinas"

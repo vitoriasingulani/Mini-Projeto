@@ -9,8 +9,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-       // Disciplinas[] disciplinas = new Disciplinas[];// Esse array tem n disciplinas
-
         ListaSequencial listaSequencial = new ListaSequencial();
 
         while (true) {
@@ -32,23 +30,28 @@ public class Main {
                 case 1:
                     System.out.println("Nome: ");
                     String nome = sc.nextLine();
-                    System.out.println("Rgm: ");
-                    int rgm = sc.nextInt(); //vai ser int mesmo ?
-//                    System.out.println("Deseja adicionar mais disciplinas? S ou N ");
-//                    String adesaoDeDisciplina = sc.nextLine();
 
-//                        if(adesaoDeDisciplina == "s" ){
-//                            System.out.println("Digite a disciplina desejada: ");
-//                            String nomeDaDisciplina = sc.nextLine();
-//                            //colocar em um array
-//                            System.out.println("Deseja adicionar mais disciplinas?: ");
-//
-//                        }else{
-//                            break;
-//                        }
+                    System.out.println("Rgm: ");
+                    int rgm = sc.nextInt();
+                    sc.nextLine();
+
+                    while (true) {
+                        System.out.println("Deseja adicionar mais disciplinas? Digite '1' para SIM | '2' para NÃO ");
+                        int adesaoDeDisciplina = sc.nextInt();
+                        sc.nextLine();
+
+                        if (adesaoDeDisciplina == 1) {
+                            System.out.println("Digite a disciplina desejada: ");
+                            String nomeDaDisciplina = sc.nextLine();
+
+                        } else if (adesaoDeDisciplina == 2) {
+                            break;
+                        } else {
+                            System.out.println("Opção inválida!");
+                        }
+                    }
                     Aluno aluno = new Aluno(nome, rgm);
                     listaSequencial.append(aluno);
-
                     break;
 
                 case 2:
@@ -56,16 +59,15 @@ public class Main {
                     int buscaPorRGM = sc.nextInt();
 
                     Aluno alunoEncontrado = listaSequencial.buscaPorRGM(buscaPorRGM);
-                    if (alunoEncontrado == null){
+                    if (alunoEncontrado == null) {
                         System.out.println("Aluno não encontrado!");
                     } else {
                         System.out.println(alunoEncontrado);
                     }
-
                     break;
 
                 case 3:
-                        listaSequencial.exibirAlunos();
+                    listaSequencial.exibirAlunos();
                     break;
 
                 case 4:
@@ -73,21 +75,18 @@ public class Main {
                     int rgmParaRemover = sc.nextInt();
 
                     Aluno removerAlunoPorRGM = listaSequencial.removerAlunoPorRGM(rgmParaRemover);
-                    if (removerAlunoPorRGM == null){
+                    if (removerAlunoPorRGM == null) {
                         System.out.println("RGM não existente!");
-                    }else {
+                    } else {
                         System.out.println("Aluno removido!");
-
                     }
                     break;
 
                 case 5:
-
                     break;
 
                 default:
                     System.out.println("Opção Inválida!");
-
             }
         }
     }

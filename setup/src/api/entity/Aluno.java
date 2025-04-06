@@ -1,8 +1,5 @@
 package api.entity;
 
-
-import api.entity.Disciplinas;
-
 public class Aluno {
     private String nome;
     private int rgm;
@@ -12,7 +9,6 @@ public class Aluno {
         this.nome = nome;
         this.rgm = rgm;
     }
-
 
     public Aluno(String nome, int rgm, String disciplinas){
         this.nome = nome;
