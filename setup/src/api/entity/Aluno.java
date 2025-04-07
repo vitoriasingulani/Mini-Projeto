@@ -1,55 +1,61 @@
 package api.entity;
+import api.entity.Disciplina;
 
 public class Aluno {
     private String nome;
     private int rgm;
-    private String Disciplinas;
+    private Disciplina disciplina;
+    private Disciplina ponteiroParaAProximaDisciplina;
 
-    public Aluno(String nome, int rgm){
+    public Aluno(String nome, int rgm, Disciplina disciplina){
         this.nome = nome;
         this.rgm = rgm;
+        this.disciplina = disciplina;
     }
 
     public Aluno(String nome, int rgm, String disciplinas){
         this.nome = nome;
         this.rgm = rgm;
-        //this.disciplinas = disciplinas; // tem que instaciar?
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public int getRgm() {
         return rgm;
     }
 
-    public void setRgm(int rgm) {
-        this.rgm = rgm;
-    }
 
     @Override
     public String toString() {
         return "Aluno: " + nome + " | " + " RGM: " + rgm;
     }
-//    public String[] getDisciplinas() {
-//        return disciplinas;
-//    }
-//
-//    public void setDisciplinas(String[] disciplinas) {
-//        this.disciplinas = disciplinas;
-//    }
 
 
+    public void exibirDisciplinas() {
+        Disciplina disciplinaParaExibir = this.disciplina;
+        while (disciplinaParaExibir != null){ //
+            System.out.println(disciplinaParaExibir);
+            disciplinaParaExibir = disciplinaParaExibir.getPonteiroParaAProximaDisciplina();
+        }
+        System.out.println("-------------------");
 
 
-
-
-
-
-
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

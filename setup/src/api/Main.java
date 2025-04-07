@@ -1,6 +1,6 @@
 package api;
 import api.entity.Aluno;
-import api.entity.Disciplinas;
+import api.entity.Disciplina;
 import api.entity.ListaSequencial;
 
 import java.util.Scanner;
@@ -11,7 +11,9 @@ public class Main {
 
         ListaSequencial listaSequencial = new ListaSequencial();
 
-        while (true) {
+        boolean contador = true;
+        while (contador) {
+
             System.out.println("---------------------------------------------------------");
             System.out.println("------------------------ M E N U ------------------------");
             System.out.println("---------------------------------------------------------");
@@ -28,12 +30,15 @@ public class Main {
 
             switch (opcao) {
                 case 1:
+                    contador = false;
                     System.out.println("Nome: ");
                     String nome = sc.nextLine();
 
                     System.out.println("Rgm: ");
                     int rgm = sc.nextInt();
                     sc.nextLine();
+
+                    Disciplina disciplina = new Disciplina();
 
                     while (true) {
                         System.out.println("Deseja adicionar mais disciplinas? Digite '1' para SIM | '2' para NÃO ");
@@ -44,16 +49,19 @@ public class Main {
                             System.out.println("Digite a disciplina desejada: ");
                             String nomeDaDisciplina = sc.nextLine();
 
+                            Disciplina disciplinaACadastrar = new Disciplina(nomeDaDisciplina);
+                            disciplina.append(disciplinaACadastrar);
+
                         } else if (adesaoDeDisciplina == 2) {
                             break;
                         } else {
                             System.out.println("Opção inválida!");
                         }
+
                     }
-                    Aluno aluno = new Aluno(nome, rgm);
+                    Aluno aluno = new Aluno(nome, rgm, disciplina);
                     listaSequencial.append(aluno);
                     break;
-
                 case 2:
                     System.out.println("Digite o RGM do Aluno:  ");
                     int buscaPorRGM = sc.nextInt();
