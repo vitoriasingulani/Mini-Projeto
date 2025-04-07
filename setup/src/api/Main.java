@@ -1,8 +1,8 @@
 package api;
+
 import api.entity.Aluno;
 import api.entity.Disciplina;
 import api.entity.ListaSequencial;
-
 import java.util.Scanner;
 
 public class Main {
@@ -11,9 +11,7 @@ public class Main {
 
         ListaSequencial listaSequencial = new ListaSequencial();
 
-        boolean contador = true;
-        while (contador) {
-
+        while (true) {
             System.out.println("---------------------------------------------------------");
             System.out.println("------------------------ M E N U ------------------------");
             System.out.println("---------------------------------------------------------");
@@ -29,8 +27,7 @@ public class Main {
             sc.nextLine();
 
             switch (opcao) {
-                case 1:
-                    contador = false;
+                case 1: //adcionar uma instacia de aluno
                     System.out.println("Nome: ");
                     String nome = sc.nextLine();
 
@@ -38,7 +35,7 @@ public class Main {
                     int rgm = sc.nextInt();
                     sc.nextLine();
 
-                    Disciplina disciplina = new Disciplina();
+                    Disciplina disciplina = new Disciplina(); //cria uma lista de disciplinas. Objeto que vai armazenar a disciplina do aluno
 
                     while (true) {
                         System.out.println("Deseja adicionar mais disciplinas? Digite '1' para SIM | '2' para NÃO ");
@@ -49,7 +46,7 @@ public class Main {
                             System.out.println("Digite a disciplina desejada: ");
                             String nomeDaDisciplina = sc.nextLine();
 
-                            Disciplina disciplinaACadastrar = new Disciplina(nomeDaDisciplina);
+                            Disciplina disciplinaACadastrar = new Disciplina(nomeDaDisciplina); // Instacia
                             disciplina.append(disciplinaACadastrar);
 
                         } else if (adesaoDeDisciplina == 2) {

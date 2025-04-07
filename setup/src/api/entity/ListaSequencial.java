@@ -7,28 +7,36 @@ public class ListaSequencial {
 
     public void append(Aluno aluno) {// publico é o modificador de acesso | void é o tipo de retorno | append é o método
         if (this.qntdAluno < this.alunos.length) {// this.alunos.length é o tamnho total do array | Aqui tem uma verificação de
-            int indiceParaNovoRGM = 0;
-            Aluno alunoTemporario = null;
-            for (int i = 0; i < this.qntdAluno; i++){
-                if(aluno.getRgm() < alunos[i].getRgm()) {
-                    indiceParaNovoRGM = i;
-                }
-            }
-            System.out.println("POSIÇÃO A SUBSTITUIR -> " + indiceParaNovoRGM );
-
             this.alunos[this.qntdAluno] = aluno;
             this.qntdAluno++;
             System.out.println("Aluno Cadastrado!");
+            ordenarAlunosPorRGM();
         } else {
             System.out.println("LISTA CHEIA! ");
         }
     }
+
+    public void ordenarAlunosPorRGM(){
+
+        for(int i = 0 ; i < this.qntdAluno; i++){
+            for(int j = 0 ; j < this.qntdAluno - 1; j++){
+                if(alunos[j].getRgm() > alunos[j+1].getRgm()){
+                    Aluno alunoParaTroca = this.alunos[j];
+                    this.alunos[j] = this.alunos[j + 1];
+                    this.alunos[j +1] = alunoParaTroca;
+                }
+            }
+        }
+
+    }
+
 
     public void exibirAlunos() {
         if (this.qntdAluno == 0) {
             System.out.println("Nenhum aluno cadastrado!");
         } else {
             System.out.println("Lista de Alunos:");
+            System.out.println("-----------------");
             for (int i = 0; i < this.qntdAluno; i++) {
                 Aluno aluno = alunos[i];
                 System.out.println(aluno);

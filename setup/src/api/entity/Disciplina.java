@@ -4,24 +4,25 @@ public class Disciplina {
     private String nomeDisciplina;
     private Disciplina ponteiroParaAProximaDisciplina;
 
-    public  Disciplina(String nomeDaDisciplina){
+    public Disciplina(String nomeDaDisciplina) {
         this.nomeDisciplina = nomeDaDisciplina;
     }
-    public Disciplina(){
+
+    public Disciplina() {
     }
 
-    public void append(Disciplina disciplina){ // recurssão?
-        if(this.nomeDisciplina == null) {
+    public void append(Disciplina disciplina) { // recurssão?
+        if (this.nomeDisciplina == null) {
             this.nomeDisciplina = disciplina.getNomeDaDisciplina();
-        }else if(this.ponteiroParaAProximaDisciplina == null){
+        } else if (this.ponteiroParaAProximaDisciplina == null) {
             this.ponteiroParaAProximaDisciplina = disciplina;
-        }else{
+        } else {
             this.ponteiroParaAProximaDisciplina.append(disciplina);
         }
     }
 
 
-    public Disciplina getPonteiroParaAProximaDisciplina (){
+    public Disciplina getPonteiroParaAProximaDisciplina() {
         return ponteiroParaAProximaDisciplina;
     }
 
@@ -35,6 +36,10 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return "Disciplina :" + nomeDisciplina;
+        if (nomeDisciplina == null) {
+            return "Esse Aluno não possui disciplinas.";
+        } else {
+            return "Disciplina: " + nomeDisciplina;
+        }
     }
 }
