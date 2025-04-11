@@ -1,11 +1,9 @@
 package api.entity;
-import api.entity.Disciplina;
 
 public class Aluno {
     private String nome;
     private int rgm;
     private Disciplina disciplina;
-    private Disciplina ponteiroParaAProximaDisciplina;
 
     public Aluno(String nome, int rgm, Disciplina disciplina){
         this.nome = nome;
@@ -13,7 +11,7 @@ public class Aluno {
         this.disciplina = disciplina;
     }
 
-    public Aluno(String nome, int rgm, String disciplinas){
+    public Aluno(String nome, int rgm){
         this.nome = nome;
         this.rgm = rgm;
     }
@@ -22,7 +20,6 @@ public class Aluno {
     public int getRgm() {
         return rgm;
     }
-
 
     @Override
     public String toString() {
@@ -37,8 +34,6 @@ public class Aluno {
             disciplinaParaExibir = disciplinaParaExibir.getPonteiroParaAProximaDisciplina();
         }
         System.out.println("-------------------");
-
-
     }
 }
 

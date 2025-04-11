@@ -7,20 +7,19 @@ public class Disciplina {
     public Disciplina(String nomeDaDisciplina) {
         this.nomeDisciplina = nomeDaDisciplina;
     }
-
     public Disciplina() {
     }
 
-    public void append(Disciplina disciplina) { // recurssão?
-        if (this.nomeDisciplina == null) {
-            this.nomeDisciplina = disciplina.getNomeDaDisciplina();
-        } else if (this.ponteiroParaAProximaDisciplina == null) {
-            this.ponteiroParaAProximaDisciplina = disciplina;
+                                                //LISTA ENCANDEADA  -  MÉTODO DE RECURSÃO
+    public void append(Disciplina disciplina) {                         //recebe a disciplina como parâmetro
+        if (this.nomeDisciplina == null) {                              //verifica se a disciplina atual esta vazia
+            this.nomeDisciplina = disciplina.getNomeDaDisciplina();     //então se ela estiver vazia, ele aproveita esse espaço e preenche com a nova disciplina.
+        } else if (this.ponteiroParaAProximaDisciplina == null) {       //Se a disciplina atual já tem um nome, mas não aponta pra ninguém (ou seja, não tem outra disciplina depois dela
+            this.ponteiroParaAProximaDisciplina = disciplina;           //então a nova disciplina fica aqui, como a próxima da fila. Agora a lista tem mais um nó!
         } else {
-            this.ponteiroParaAProximaDisciplina.append(disciplina);
+            this.ponteiroParaAProximaDisciplina.append(disciplina);     //Se já existe alguém depois da atual, o que ele faz? Chama o método append de novo, mas na próxima disciplina.
         }
     }
-
 
     public Disciplina getPonteiroParaAProximaDisciplina() {
         return ponteiroParaAProximaDisciplina;
@@ -28,10 +27,6 @@ public class Disciplina {
 
     public String getNomeDaDisciplina() {
         return nomeDisciplina;
-    }
-
-    public void setNomeDaDisciplina(String nomeDaDisciplina) {
-        this.nomeDisciplina = nomeDaDisciplina;
     }
 
     @Override

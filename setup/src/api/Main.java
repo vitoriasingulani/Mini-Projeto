@@ -17,7 +17,7 @@ public class Main {
             System.out.println("---------------------------------------------------------");
             System.out.println("--------  1 - Adicionar Aluno  --------------------------");
             System.out.println("--------  2 - Buscar Aluno por RGM ----------------------");
-            System.out.println("--------  3 - Mostras todos os alunos e disciplinas -----");
+            System.out.println("--------  3 - Mostra todos os alunos e disciplinas -----");
             System.out.println("--------  4 - Remover Aluno por RGM  --------------------");
             System.out.println("--------  5 - Sair  -------------------------------------");
             System.out.println("---------------------------------------------------------");
@@ -46,7 +46,7 @@ public class Main {
                             System.out.println("Digite a disciplina desejada: ");
                             String nomeDaDisciplina = sc.nextLine();
 
-                            Disciplina disciplinaACadastrar = new Disciplina(nomeDaDisciplina); // Instacia
+                            Disciplina disciplinaACadastrar = new Disciplina(nomeDaDisciplina); //
                             disciplina.append(disciplinaACadastrar);
 
                         } else if (adesaoDeDisciplina == 2) {
